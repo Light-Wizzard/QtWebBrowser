@@ -55,6 +55,7 @@
 #include <QTime>
 #include <QWebEnginePage>
 #include <QTimer>
+#include "downloadmanagerwidget.h"
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
@@ -121,6 +122,8 @@ class BrowserWindow : public QMainWindow
         QLineEdit           *m_urlLineEdit;
         QAction             *m_favAction;
         QString             m_lastSearch;
+        DownloadManagerWidget *myDownloadManagerWidget = nullptr;
+
 }; // end class BrowserWindow
 #endif // BROWSERWINDOW_H
 /******************************* End of File *********************************/

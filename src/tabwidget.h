@@ -115,7 +115,6 @@ class TabWidget : public QTabWidget
 
         QWebEngineProfile *m_profile;
 
-        DownloadManagerWidget *myDownloadManagerWidget = nullptr;
         int m_DownloadTab = -1;
 
 }; // end class TabWidget

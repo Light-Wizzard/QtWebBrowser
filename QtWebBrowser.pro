@@ -34,3 +34,6 @@ RESOURCES += data/QtWebBrowser.qrc
 # install
 #target.path = $$[QT_INSTALL_EXAMPLES]/webenginewidgets/simplebrowser
 #INSTALLS += target
+
+DISTFILES += \
+    README.md

@@ -247,14 +247,13 @@ void TabWidget::createDownloadTab(DownloadManagerWidget *thisDownloadManagerWidg
 {
     if (m_DownloadTab == -1)
     {
-        myDownloadManagerWidget = thisDownloadManagerWidget;
         setUpdatesEnabled(false);
-        m_DownloadTab = addTab(myDownloadManagerWidget, tr("Downloads"));
+        m_DownloadTab = addTab(thisDownloadManagerWidget, tr("Downloads"));
         setTabIcon(m_DownloadTab, QIcon());
         setTabVisible(m_DownloadTab, false);
         // Workaround for QTBUG-61770
-        myDownloadManagerWidget->resize(currentWidget()->size());
-        setCurrentWidget(myDownloadManagerWidget);
+        thisDownloadManagerWidget->resize(currentWidget()->size());
+        setCurrentWidget(thisDownloadManagerWidget);
         setUpdatesEnabled(true);
     }
     else
