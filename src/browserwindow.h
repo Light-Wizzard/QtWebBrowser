@@ -102,11 +102,11 @@ class BrowserWindow : public QMainWindow
         #endif
 
     private:
-        QMenu *createFileMenu(TabWidget *tabWidget);
-        QMenu *createEditMenu();
-        QMenu *createViewMenu(QToolBar *toolBar);
-        QMenu *createWindowMenu(TabWidget *tabWidget);
-        QMenu *createHelpMenu();
+        QMenu    *createFileMenu(TabWidget *tabWidget);
+        QMenu    *createEditMenu();
+        QMenu    *createViewMenu(QToolBar *toolBar);
+        QMenu    *createWindowMenu(TabWidget *tabWidget);
+        QMenu    *createHelpMenu();
         QToolBar *createToolBar();
 
     private:
@@ -121,8 +121,7 @@ class BrowserWindow : public QMainWindow
         QAction             *m_stopReloadAction;
         QLineEdit           *m_urlLineEdit;
         QAction             *m_favAction;
-        QString             m_lastSearch;
-        DownloadManagerWidget *myDownloadManagerWidget = nullptr;
+        QString              m_lastSearch;
 
 }; // end class BrowserWindow
 #endif // BROWSERWINDOW_H

@@ -116,4 +116,15 @@ void DownloadManagerWidget::remove(DownloadWidget *downloadWidget)
     downloadWidget->deleteLater();
     if (--m_numDownloads == 0) { m_zeroItemsLabel->show(); }
 }
+/*****************************************************************************/
+/**
+ * @brief DownloadManagerWidget::favIcon
+ * @return
+ */
+QIcon DownloadManagerWidget::favIcon() const
+{
+    // FIXME icon
+    static QIcon theFavIcon(QStringLiteral(":go-bottom.png"));
+    return theFavIcon;
+}
 /******************************* End of File *********************************/

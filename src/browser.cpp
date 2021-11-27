@@ -47,20 +47,21 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
-
 #include "browser.h"
-#include "browserwindow.h"
-
 /*****************************************************************************/
 /**
  * @brief Browser::Browser
  */
-Browser::Browser()
+Browser::Browser(QWidget *parent) : QWidget(parent)
 {
+    if (!myDownloadManagerWidget)
+    {
+        myDownloadManagerWidget = new DownloadManagerWidget(this);
+    }
     // Quit application if the download manager window is the only remaining window
-    m_downloadManagerWidget.setAttribute(Qt::WA_QuitOnClose, false);
+    myDownloadManagerWidget->setAttribute(Qt::WA_QuitOnClose, false);
 
-    QObject::connect(QWebEngineProfile::defaultProfile(), &QWebEngineProfile::downloadRequested, &m_downloadManagerWidget, &DownloadManagerWidget::downloadRequested);
+    QObject::connect(QWebEngineProfile::defaultProfile(), &QWebEngineProfile::downloadRequested, myDownloadManagerWidget.data(), &DownloadManagerWidget::downloadRequested);
 }
 /*****************************************************************************/
 /**
@@ -73,7 +74,7 @@ BrowserWindow *Browser::createWindow(bool offTheRecord)
     if (offTheRecord && !m_otrProfile)
     {
         m_otrProfile.reset(new QWebEngineProfile);
-        QObject::connect(m_otrProfile.get(), &QWebEngineProfile::downloadRequested, &m_downloadManagerWidget, &DownloadManagerWidget::downloadRequested);
+        QObject::connect(m_otrProfile.get(), &QWebEngineProfile::downloadRequested, myDownloadManagerWidget.data(), &DownloadManagerWidget::downloadRequested);
     }
     auto profile = offTheRecord ? m_otrProfile.get() : QWebEngineProfile::defaultProfile();
     auto mainWindow = new BrowserWindow(this, profile, false);

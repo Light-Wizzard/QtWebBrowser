@@ -75,6 +75,7 @@ class DownloadManagerWidget final : public QWidget, public Ui::DownloadManagerWi
         // the QWebEngineDownloadItem will be accepted and the DownloadManagerWidget
         // will be shown on the screen.
         void downloadRequested(QWebEngineDownloadItem *webItem);
+        QIcon favIcon() const;
 
     private:
         void add(DownloadWidget *downloadWidget);

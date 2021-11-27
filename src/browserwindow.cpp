@@ -449,7 +449,7 @@ void BrowserWindow::onDownloadTab()
 {
     if (m_tabWidget->getDownloadTab() == -1)
     {
-        m_tabWidget->createDownloadTab(&m_browser->downloadManagerWidget());
+        m_tabWidget->createDownloadTab(m_browser->downloadManagerWidget());
     }
     else
     {
